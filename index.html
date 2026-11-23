@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brisa Natural · Superalimentos</title>
+<meta name="description" content="Frutos secos, mixes y frutas desecadas. Elegí el tamaño y pedinos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{--accent:#6B3A1A;--ink:#2B1B0F;--muted:#5E4B3B;--ground:#FBF7F0;--tint:#F1E7D6;--line:#E6D9C3;--green:#5C6B2A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.55}
+.page{position:relative;isolation:isolate;background:var(--ground)}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0}
+p{margin:0}
+a{text-decoration:none;color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-weight:600;border-radius:999px;min-height:44px;padding:0 20px;text-align:center}
+.btn:hover{opacity:.9}
+.btn.lg{min-height:52px;padding:0 28px;font-size:18px}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn.light{background:#fff;color:var(--ink)}
+
+/* Frutos que caen (por detrás de todo) */
+.fx{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:-1}
+.fruto{position:absolute;top:0;opacity:0;filter:drop-shadow(0 3px 3px rgba(60,35,15,.35));animation-name:caer;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes caer{0%{transform:translateY(-70px) rotate(0deg);opacity:0}10%{opacity:.9}85%{opacity:.9}100%{transform:translateY(115vh) rotate(360deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fruto{animation:none;display:none}}
+
+/* Encabezado */
+.top{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;line-height:1.1;color:var(--accent)}
+.brand-sub{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.nav{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.nav a.link{color:var(--muted);font-weight:500}
+.nav a.link:hover{color:var(--ink)}
+
+/* Portada */
+.hero{max-width:1200px;margin:0 auto;padding:16px 24px 32px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.hero h1{font-weight:700;font-size:42px;line-height:1.08}
+.hero p{font-size:18px;color:var(--muted);max-width:520px}
+.hero .row{display:flex;flex-wrap:wrap;gap:16px}
+
+/* Beneficios */
+.benefits{background:var(--tint)}
+.benefits-in{max-width:1200px;margin:0 auto;padding:24px;display:flex;flex-wrap:wrap;gap:20px}
+.benefit{flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.benefit h3{font-weight:700;font-size:22px}
+.benefit p{color:var(--muted)}
+
+/* Catálogo */
+.catalog{max-width:1200px;margin:0 auto;padding:24px 24px 32px;display:flex;flex-direction:column;gap:16px}
+.catalog h2{font-weight:700;font-size:32px}
+.catalog .intro{color:var(--muted);max-width:620px}
+.tabs{position:sticky;top:0;z-index:3;display:flex;gap:8px;overflow-x:auto;padding:8px 0;background:var(--ground)}
+.tab{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;font-size:16px;font-weight:600;white-space:nowrap;border:2px solid var(--accent);color:var(--accent);background:transparent}
+.tab.on{background:var(--accent);color:#fff}
+.cat-title{font-weight:700;font-size:26px;margin:12px 0 0;scroll-margin-top:72px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pimg{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:14px;display:block}
+.noimg{width:100%;aspect-ratio:1/1;border-radius:14px;background:#E9DCC4;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:var(--muted);font-weight:500;font-size:14px}
+.pname{font-weight:700;font-size:18px;line-height:1.2;min-height:2.4em;display:flex;align-items:center;justify-content:center;text-align:center}
+.pdesc{text-align:center;color:var(--muted);font-size:13px;line-height:1.4;flex:1 1 auto}
+.pills{display:grid;gap:4px}
+.pill{min-height:40px;min-width:0;padding:0 2px;border-radius:999px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--accent);background:transparent;color:var(--accent)}
+.pill.on{background:var(--accent);color:#fff}
+.total{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent)}
+.stepper{display:flex;align-items:center;justify-content:center;gap:16px}
+.step{width:44px;height:44px;padding:0;border-radius:999px;border:2px solid var(--accent);background:transparent;color:var(--accent);font-family:inherit;font-size:24px;font-weight:600;line-height:1;cursor:pointer}
+.qty{min-width:24px;text-align:center;font-weight:600;font-size:20px}
+.card .btn{width:100%;min-height:48px;padding:0 16px}
+
+/* Cómo comprar */
+.how{background:var(--ink);color:var(--ground)}
+.how-in{max-width:1200px;margin:0 auto;padding:36px 24px;display:flex;flex-direction:column;gap:20px}
+.how h2{font-weight:700;font-size:32px}
+.steps{display:flex;flex-wrap:wrap;gap:20px}
+.stepbox{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.num{width:48px;height:48px;border-radius:999px;background:var(--ground);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px}
+.stepbox h3{font-weight:700;font-size:22px}
+.stepbox p{color:var(--line)}
+
+/* Preguntas frecuentes */
+.faq{max-width:900px;margin:0 auto;padding:36px 24px 16px;display:flex;flex-direction:column;gap:16px}
+.faq h2{font-weight:700;font-size:32px}
+.qa{display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.qa:last-child{border-bottom:0}
+.qa h3{font-weight:700;font-size:20px}
+.qa p{color:var(--muted)}
+
+/* Cierre */
+.closing{max-width:1200px;margin:0 auto;padding:16px 24px 40px}
+.closing-box{background:var(--accent);color:#fff;border-radius:28px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.closing-box h2{font-weight:700;font-size:30px}
+.closing-box p{font-size:19px;max-width:560px}
+
+footer{border-top:1px solid var(--line)}
+.foot{max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- Frutos que caen -->
+<div class="fx" aria-hidden="true">
+<svg width="0" height="0" style="position:absolute"><defs><radialGradient id="gAlm" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#E0B27A"/><stop offset=".6" stop-color="#B07A42"/><stop offset="1" stop-color="#7A4A22"/></radialGradient><radialGradient id="gNuez" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#D9AC72"/><stop offset=".6" stop-color="#A7733C"/><stop offset="1" stop-color="#6E4423"/></radialGradient><linearGradient id="gPist" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0E2BC"/><stop offset="1" stop-color="#CDB57F"/></linearGradient><radialGradient id="gCaju" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#F3DCA6"/><stop offset="1" stop-color="#C99A55"/></radialGradient><radialGradient id="gBan" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#FBE9A0"/><stop offset=".7" stop-color="#EBC862"/><stop offset="1" stop-color="#C9993A"/></radialGradient><g id="almendra"><path d="M0 -12 C5 -9 9 -2 8 5 C7 10 3 13 0 13 C-3 13 -7 10 -8 5 C-9 -2 -5 -9 0 -12 Z" fill="url(#gAlm)" stroke="#6B3D1B" stroke-width=".8"/><path d="M-3 -5 Q-5 3 -3 10 M1 -7 Q4 2 2 11 M5 -2 Q7 4 5 9" fill="none" stroke="#5E3416" stroke-width=".6" opacity=".4" stroke-linecap="round"/><ellipse cx="-3" cy="-1" rx="1.6" ry="4.5" fill="#FFFFFF" opacity=".28" transform="rotate(12 -3 -1)"/></g><g id="nuez"><path d="M0 -10.5 C5 -11 10 -7 10.5 -1 C11 5 7 10.5 0 10.5 C-7 10.5 -11 5 -10.5 -1 C-10 -7 -5 -11 0 -10.5 Z" fill="url(#gNuez)" stroke="#5E3A1C" stroke-width=".8"/><path d="M0 -10.5 C-3 -4 -3 4 0 10.5" fill="none" stroke="#4E2F16" stroke-width="1" opacity=".7"/><path d="M-6 -7 Q-8 0 -6 7 M6 -7 Q8 0 6 7 M-4 -4 Q-5 0 -4 4 M4 -4 Q5 0 4 4" fill="none" stroke="#4E2F16" stroke-width=".6" opacity=".45" stroke-linecap="round"/><ellipse cx="-5" cy="-5" rx="3" ry="2" fill="#FFFFFF" opacity=".25" transform="rotate(-35 -5 -5)"/></g><g id="pistacho"><path d="M0 -13 C6 -11 8 -3 7 4 C6 10 3 13 0 13 C-3 13 -6 10 -7 4 C-8 -3 -6 -11 0 -13 Z" fill="url(#gPist)" stroke="#9C8450" stroke-width=".8"/><path d="M0 -13 C-1 -5 -1 5 0 13" fill="none" stroke="#9C8450" stroke-width=".7" opacity=".8"/><path d="M0 -12.5 C-4 -11 -5 -6 -3 -3 C-1 -2 1 -2 3 -3 C5 -6 4 -11 0 -12.5 Z" fill="#9DB45A" stroke="#6F8438" stroke-width=".6"/><ellipse cx="-3" cy="5" rx="1.2" ry="4" fill="#FFFFFF" opacity=".35"/></g><g id="caju"><path d="M-9 -3 C-9 -9 0 -11 6 -7 C10 -4 9 4 4 9 C1 12 -4 11 -3 8 C0 6 3 3 2 0 C0 -2 -6 -1 -7 3 C-8 1 -9 -1 -9 -3 Z" fill="url(#gCaju)" stroke="#A8783A" stroke-width=".8"/><ellipse cx="0" cy="-7" rx="3.5" ry="1.4" fill="#FFFFFF" opacity=".35" transform="rotate(-15 0 -7)"/></g><g id="banana"><path d="M0 -10.5 C6 -11 11 -6 10.5 0 C11 6 6 10.8 0 10.5 C-6 11 -11 6 -10.5 0 C-11 -6 -6 -10.5 0 -10.5 Z" fill="url(#gBan)" stroke="#B5832E" stroke-width=".8"/><circle r="7.2" fill="none" stroke="#D9AE4A" stroke-width=".7" opacity=".9"/><circle r="1.6" fill="#8A5A1E" opacity=".8"/><circle cx="2.6" cy="1.2" r=".7" fill="#8A5A1E" opacity=".7"/><circle cx="-2.4" cy="1.6" r=".7" fill="#8A5A1E" opacity=".7"/><circle cx=".4" cy="-2.6" r=".7" fill="#8A5A1E" opacity=".7"/><circle cx="-.5" cy="3" r=".7" fill="#8A5A1E" opacity=".7"/><ellipse cx="-4.5" cy="-5" rx="2.5" ry="1.4" fill="#FFFFFF" opacity=".35" transform="rotate(-35 -4.5 -5)"/></g></defs></svg>
+<svg class="fruto" style="left:4%;animation-duration:9s;animation-delay:-2s" width="34" height="40" viewBox="-12 -14 24 28"><use href="#almendra"/></svg>
+<svg class="fruto" style="left:14%;animation-duration:12s;animation-delay:-7s" width="44" height="44" viewBox="-12 -12 24 24"><use href="#nuez"/></svg>
+<svg class="fruto" style="left:27%;animation-duration:10s;animation-delay:-4s" width="30" height="42" viewBox="-10 -14 20 28"><use href="#pistacho"/></svg>
+<svg class="fruto" style="left:40%;animation-duration:13s;animation-delay:-9s" width="36" height="42" viewBox="-12 -14 24 28"><use href="#almendra"/></svg>
+<svg class="fruto" style="left:52%;animation-duration:9.5s;animation-delay:-1s" width="38" height="44" viewBox="-11 -13 22 26"><use href="#caju"/></svg>
+<svg class="fruto" style="left:64%;animation-duration:11s;animation-delay:-6s" width="40" height="40" viewBox="-12 -12 24 24"><use href="#nuez"/></svg>
+<svg class="fruto" style="left:76%;animation-duration:8.5s;animation-delay:-3s" width="32" height="38" viewBox="-12 -14 24 28"><use href="#almendra"/></svg>
+<svg class="fruto" style="left:88%;animation-duration:12.5s;animation-delay:-10s" width="28" height="40" viewBox="-10 -14 20 28"><use href="#pistacho"/></svg>
+<svg class="fruto" style="left:96%;animation-duration:10.5s;animation-delay:-5s" width="34" height="40" viewBox="-11 -13 22 26"><use href="#caju"/></svg>
+<svg class="fruto" style="left:9%;animation-duration:11.5s;animation-delay:-8s" width="40" height="40" viewBox="-12 -12 24 24"><use href="#banana"/></svg>
+<svg class="fruto" style="left:33%;animation-duration:9.8s;animation-delay:-3s" width="36" height="36" viewBox="-12 -12 24 24"><use href="#banana"/></svg>
+<svg class="fruto" style="left:58%;animation-duration:12.8s;animation-delay:-11s" width="42" height="42" viewBox="-12 -12 24 24"><use href="#banana"/></svg>
+<svg class="fruto" style="left:82%;animation-duration:10.2s;animation-delay:-6s" width="38" height="38" viewBox="-12 -12 24 24"><use href="#banana"/></svg>
+</div>
+
+<!-- Encabezado -->
+<header class="top">
+<div class="brand">
+<svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Logo de Brisa Natural: una gatita siamesa con almendras y nueces" xmlns="http://www.w3.org/2000/svg"><path d="M13 27 L14 6 L29 17 Z" fill="#5A3A28"/><path d="M51 27 L50 6 L35 17 Z" fill="#5A3A28"/><path d="M16 22 L16.5 11 L25 17.5 Z" fill="#E7B9A8"/><path d="M48 22 L47.5 11 L39 17.5 Z" fill="#E7B9A8"/><ellipse cx="32" cy="31" rx="19" ry="16" fill="#F3E6D0"/><ellipse cx="32" cy="37" rx="9.5" ry="8" fill="#6B4630"/><ellipse cx="24" cy="29" rx="4" ry="3" fill="#5B8FB9"/><ellipse cx="40" cy="29" rx="4" ry="3" fill="#5B8FB9"/><ellipse cx="24" cy="29" rx="1.3" ry="2.4" fill="#1E1410"/><ellipse cx="40" cy="29" rx="1.3" ry="2.4" fill="#1E1410"/><path d="M29.5 35 L34.5 35 L32 38 Z" fill="#E7B9A8"/><path d="M32 38 L32 40.5 M32 40.5 Q29.5 42.5 27.5 40.5 M32 40.5 Q34.5 42.5 36.5 40.5" fill="none" stroke="#F3E6D0" stroke-width="1.2" stroke-linecap="round"/><path d="M18 36 L8 34 M18 39 L8 40 M46 36 L56 34 M46 39 L56 40" stroke="#8A6A52" stroke-width="1" stroke-linecap="round"/><g transform="translate(14 55) rotate(-35)"><path d="M0 -8 C6.5 -4 6.5 4 0 8 C-6.5 4 -6.5 -4 0 -8 Z" fill="#C99A5B" stroke="#8A5A2B" stroke-width="1.2"/><path d="M0 -5 L0 5" stroke="#8A5A2B" stroke-width="1" stroke-linecap="round"/></g><g transform="translate(50 55) rotate(35)"><path d="M0 -8 C6.5 -4 6.5 4 0 8 C-6.5 4 -6.5 -4 0 -8 Z" fill="#C99A5B" stroke="#8A5A2B" stroke-width="1.2"/><path d="M0 -5 L0 5" stroke="#8A5A2B" stroke-width="1" stroke-linecap="round"/></g><circle cx="32" cy="55" r="6" fill="#A9743F" stroke="#6B4630" stroke-width="1.2"/><path d="M32 49.5 Q29.5 55 32 60.5 M27 52.5 Q32 54.5 37 52.5" fill="none" stroke="#6B4630" stroke-width="1" stroke-linecap="round"/></svg>
+<div><div class="brand-name">Brisa Natural</div><div class="brand-sub">Superalimentos</div></div>
+</div>
+<nav class="nav">
+<a class="link" href="#productos">Productos</a>
+<a class="link" href="#como-comprar">Cómo comprar</a>
+<a class="btn" data-wa="Hola! Quiero hacer un pedido de frutos secos." href="#">Pedir por WhatsApp</a>
+</nav>
+</header>
+
+<!-- Portada -->
+<section class="hero">
+<div class="eyebrow">Frutos secos y semillas</div>
+<h1>Frutos secos de verdad, directo a tu casa</h1>
+<p>Almendras, nueces, castañas, pistachos y mucho más. Elegí tus favoritos, pedinos por WhatsApp y recibilos donde estés.</p>
+<div class="row">
+<a class="btn lg" data-wa="Hola! Quiero hacer un pedido de frutos secos." href="#">Hacer mi pedido</a>
+<a class="btn lg ghost" href="#productos">Ver productos</a>
+</div>
+</section>
+
+<!-- Beneficios -->
+<section class="benefits">
+<div class="benefits-in">
+<div class="benefit"><h3>Elegidos con cuidado</h3><p>Seleccionamos productos que podés sumar fácilmente a tus comidas de todos los días, desde el desayuno hasta la merienda.</p></div>
+<div class="benefit"><h3>Frescos y bien guardados</h3><p>Cuidamos cómo guardamos y envasamos cada producto para que llegue a tus manos en buenas condiciones.</p></div>
+<div class="benefit"><h3>Envíos</h3><p>Pasános tu código postal y te confirmamos las opciones de envío, el costo y el plazo estimado antes de cerrar tu pedido.</p></div>
+</div>
+</section>
+
+<!-- Catálogo -->
+<section id="productos" class="catalog">
+<h2>Nuestros productos</h2>
+<p class="intro">Elegí el tamaño y la cantidad, y pedinos por WhatsApp.</p>
+<div class="tabs" id="tabs"></div>
+<div id="catalog"></div>
+</section>
+
+<!-- Cómo comprar -->
+<section id="como-comprar" class="how">
+<div class="how-in">
+<h2>Comprar es muy simple</h2>
+<div class="steps">
+<div class="stepbox"><div class="num">1</div><h3>Elegí tus productos</h3><p>Mirá el catálogo y anotá lo que más te guste.</p></div>
+<div class="stepbox"><div class="num">2</div><h3>Escribinos por WhatsApp</h3><p>Mandanos tu pedido y te confirmamos el total.</p></div>
+<div class="stepbox"><div class="num">3</div><h3>Recibilo en tu casa</h3><p>Coordinamos envío o retiro, como te quede mejor.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Preguntas frecuentes -->
+<section class="faq">
+<h2>Preguntas frecuentes</h2>
+<div class="qa"><h3>¿Hacen envíos?</h3><p>Escribí acá tus zonas de envío, costos y tiempos de entrega.</p></div>
+<div class="qa"><h3>¿Cómo puedo pagar?</h3><p>Indicá tus medios de pago: transferencia, efectivo, tarjeta, etc.</p></div>
+<div class="qa"><h3>¿Hay compra mínima?</h3><p>Aclará si hay un monto o cantidad mínima, o si no la hay.</p></div>
+<div class="qa"><h3>¿Venden por mayor?</h3><p>Contá condiciones y precios para comercios o compras por kilo.</p></div>
+</section>
+
+<!-- Cierre -->
+<section class="closing">
+<div class="closing-box">
+<h2>¿Listo para tu pedido?</h2>
+<p>Escribinos y armamos tu compra a medida.</p>
+<a class="btn lg light" data-wa="Hola! Quiero hacer un pedido de frutos secos." href="#">Escribir por WhatsApp</a>
+</div>
+</section>
+
+<footer>
+<div class="foot">
+<div>Brisa Natural · Superalimentos · [Tu ciudad], Argentina</div>
+<div>WhatsApp: +54 11 3035 4465 · Instagram: [@tuusuario]</div>
+</div>
+</footer>
+
+</div>
+
+<script>
+/* ====== EDITÁ ACÁ ====== */
+var WHATSAPP = '5491130354465'; // código de país + número, sin + ni espacios
+
+// Cada producto: key único, cat (categoría), name, photo (ruta de la foto o ''), desc,
+// prices: { '250': precio, '500': precio, '1000': precio } (gramos). Vacío {} = "Precio a confirmar".
+var CATALOG = [
+  { key: 'energetico', cat: 'Mixes', name: 'Mix Energético', photo: 'images/mix-energetico.jpg', desc: 'Almendras non pareil, nueces mariposa extra light, pasas de uva, maní sin sal y chips de banana.', prices: { '250': 4500, '500': 8500, '1000': 16500 } },
+  { key: 'esencial', cat: 'Mixes', name: 'Mix Esencial', photo: 'images/mix-esencial.jpg', desc: 'Almendras non pareil, nueces mariposa extra light, maní sin sal y chips de banana.', prices: { '250': 5500, '500': 10500, '1000': 20000 } },
+  { key: 'almendras', cat: 'Frutos secos', name: 'Almendras non pareil', photo: '', desc: 'Crocantes, ideales para snack o repostería.', prices: { '250': 9500 } },
+  { key: 'nueces', cat: 'Frutos secos', name: 'Nueces', photo: '', desc: '', prices: {} },
+  { key: 'caju', cat: 'Frutos secos', name: 'Castañas de cajú', photo: '', desc: '', prices: {} },
+  { key: 'pistachos', cat: 'Frutos secos', name: 'Pistachos', photo: '', desc: '', prices: {} },
+  { key: 'avellanas', cat: 'Frutos secos', name: 'Avellanas', photo: '', desc: '', prices: {} },
+  { key: 'pasas', cat: 'Frutas desecadas', name: 'Pasas de uva', photo: '', desc: '', prices: {} }
+];
+/* ====== FIN ====== */
+
+var LABELS = { '250': '250 g', '500': '500 g', '1000': '1 kg' };
+var state = { sel: {}, qty: {}, active: null };
+
+function fmt(n) { return '$ ' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+function slug(c) { return 'cat-' + c.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-'); }
+function waLink(text) { return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text); }
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+var cats = CATALOG.map(function (p) { return p.cat; }).filter(function (c, i, a) { return a.indexOf(c) === i; });
+
+function cardHtml(p) {
+  var sizes = Object.keys(p.prices);
+  var hasPrice = sizes.length > 0;
+  var cur = state.sel[p.key] || sizes[0];
+  var qty = state.qty[p.key] || 1;
+  var photo = p.photo
+    ? '<img class="pimg" src="' + esc(p.photo) + '" alt="' + esc(p.name) + ' de Brisa Natural" loading="lazy">'
+    : '<div class="noimg">Foto próximamente</div>';
+  var pills = '';
+  var stepper = '';
+  if (hasPrice) {
+    pills = '<div class="pills" role="group" aria-label="Elegí el tamaño" style="grid-template-columns:repeat(' + sizes.length + ',minmax(0,1fr))">' +
+      sizes.map(function (k) {
+        return '<button type="button" class="pill' + (k === cur ? ' on' : '') + '" data-act="size" data-key="' + p.key + '" data-val="' + k + '" aria-pressed="' + (k === cur) + '">' + LABELS[k] + '</button>';
+      }).join('') + '</div>';
+    stepper = '<div class="stepper">' +
+      '<button type="button" class="step" data-act="minus" data-key="' + p.key + '" aria-label="Quitar uno">−</button>' +
+      '<div class="qty">' + qty + '</div>' +
+      '<button type="button" class="step" data-act="plus" data-key="' + p.key + '" aria-label="Agregar uno">+</button>' +
+      '</div>';
+  }
+  var total = hasPrice ? fmt(p.prices[cur] * qty) : 'Precio a confirmar';
+  var text = hasPrice
+    ? 'Hola! Quiero ' + qty + ' x ' + p.name + ' de ' + LABELS[cur] + '.'
+    : 'Hola! Quiero consultar el precio de ' + p.name + '.';
+  return '<div class="card">' + photo +
+    '<h3 class="pname">' + esc(p.name) + '</h3>' +
+    '<p class="pdesc">' + esc(p.desc) + '</p>' +
+    pills +
+    '<div class="total" style="font-size:' + (hasPrice ? 26 : 18) + 'px">' + total + '</div>' +
+    stepper +
+    '<a class="btn" href="' + waLink(text) + '" target="_blank" rel="noopener">' + (hasPrice ? 'Pedir por WhatsApp' : 'Consultar por WhatsApp') + '</a>' +
+    '</div>';
+}
+
+function renderCatalog() {
+  var html = cats.map(function (c) {
+    var items = CATALOG.filter(function (p) { return p.cat === c; });
+    return '<h3 class="cat-title" id="' + slug(c) + '">' + esc(c) + '</h3><div class="grid">' + items.map(cardHtml).join('') + '</div>';
+  }).join('');
+  document.getElementById('catalog').innerHTML = html;
+}
+
+function renderTabs() {
+  var act = state.active || slug(cats[0]);
+  document.getElementById('tabs').innerHTML = cats.map(function (c) {
+    return '<a id="tab-' + slug(c) + '" class="tab' + (slug(c) === act ? ' on' : '') + '" href="#' + slug(c) + '">' + esc(c) + '</a>';
+  }).join('');
+}
+
+document.getElementById('catalog').addEventListener('click', function (e) {
+  var b = e.target.closest('button[data-act]');
+  if (!b) return;
+  var key = b.getAttribute('data-key');
+  var act = b.getAttribute('data-act');
+  if (act === 'size') state.sel[key] = b.getAttribute('data-val');
+  if (act === 'minus') state.qty[key] = Math.max(1, (state.qty[key] || 1) - 1);
+  if (act === 'plus') state.qty[key] = Math.min(20, (state.qty[key] || 1) + 1);
+  renderCatalog();
+});
+
+// Botones de WhatsApp de la portada, el encabezado y el cierre
+Array.prototype.forEach.call(document.querySelectorAll('[data-wa]'), function (a) {
+  a.href = waLink(a.getAttribute('data-wa'));
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
+
+// La barra de categorías sigue el scroll
+function onScroll() {
+  var ids = cats.map(slug);
+  var cur = ids[0];
+  ids.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 130) cur = id;
+  });
+  if (cur !== state.active) {
+    state.active = cur;
+    renderTabs();
+    var t = document.getElementById('tab-' + cur);
+    var bar = document.getElementById('tabs');
+    if (t && bar) bar.scrollLeft = t.offsetLeft - (bar.clientWidth - t.offsetWidth) / 2;
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+
+renderCatalog();
+renderTabs();
+onScroll();
+</script>
+</body>
+</html>
