@@ -258,10 +258,20 @@ var CATALOG = [
   { key: 'chips', cat: 'Repostería', name: 'Chips de chocolate', photo: 'images/chips-chocolate.jpg', desc: 'Chips de chocolate para repostería.', prices: { '250': 4300, '500': 8200, '1000': 15500 } },
   { key: 'coco', cat: 'Repostería', name: 'Coco rallado', photo: 'images/coco-rallado.jpg', desc: 'Coco rallado.', prices: { '250': 2600, '500': 4700, '1000': 8500 } },
   { key: 'canela', cat: 'Repostería', name: 'Canela premium', photo: 'images/canela-premium.jpg', desc: 'Canela molida.', prices: { '250': 6000, '500': 11200, '1000': 21500 } },
+  { key: 'aji', cat: 'Condimentos', name: 'Ají molido', photo: 'images/aji-molido.jpg', desc: 'Ají rojo seco triturado.', prices: { '250': 4600, '500': 8700, '1000': 16500 } },
+  { key: 'comino', cat: 'Condimentos', name: 'Comino molido', photo: 'images/comino-molido.jpg', desc: 'Semillas de comino molidas.', prices: { '250': 6300, '500': 11900, '1000': 22500 } },
+  { key: 'curcuma', cat: 'Condimentos', name: 'Cúrcuma', photo: 'images/curcuma.jpg', desc: 'Cúrcuma en polvo.', prices: { '250': 5000, '500': 9500, '1000': 18000 } },
+  { key: 'oregano', cat: 'Condimentos', name: 'Orégano premium', photo: 'images/oregano-premium.jpg', desc: 'Hojas de orégano seco.', prices: { '250': 3400, '500': 6300, '1000': 11900 } },
+  { key: 'pimienta-blanca', cat: 'Condimentos', name: 'Pimienta blanca en polvo', photo: 'images/pimienta-blanca.jpg', desc: 'Pimienta blanca molida.', prices: { '250': 23500, '500': 45000, '1000': 87000 } },
+  { key: 'pimienta-negra', cat: 'Condimentos', name: 'Pimienta negra en polvo', photo: 'images/pimienta-negra.jpg', desc: 'Pimienta negra molida.', prices: { '250': 13200, '500': 25000, '1000': 48000 } },
+  { key: 'provenzal', cat: 'Condimentos', name: 'Provenzal', photo: 'images/provenzal.jpg', desc: 'Mezcla de ajo y perejil deshidratados.', prices: { '250': 6300, '500': 11900, '1000': 22500 } },
+  { key: 'sal-himalaya', cat: 'Condimentos', name: 'Sal fina del Himalaya', photo: 'images/sal-himalaya.jpg', desc: 'Sal rosada del Himalaya de molienda fina.', prices: { '250': 1650, '500': 2950, '1000': 5400 } },
+  { key: 'pasta-mani-natural', cat: 'Pastas de maní', name: 'Pasta de maní natural Entrenuts', photo: 'images/pasta-mani-natural.jpg', desc: 'Pasta de maní natural.', prices: { 'frasco': 4200 } },
+  { key: 'pasta-mani-protein', cat: 'Pastas de maní', name: 'Pasta de maní proteica Cookies & Cream Entrenuts', photo: 'images/pasta-mani-protein.jpg', desc: 'Pasta de maní proteica sabor Cookies & Cream.', prices: { 'frasco': 5500 } },
 ];
 /* ====== FIN ====== */
 
-var LABELS = { '250': '250 g', '500': '500 g', '1000': '1 kg' };
+var LABELS = { '250': '250 g', '500': '500 g', '1000': '1 kg', 'frasco': 'Frasco 370 g' };
 var state = { sel: {}, qty: {}, active: null, q: '' };
 
 function fmt(n) { return '$ ' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
@@ -294,7 +304,7 @@ function cardHtml(p) {
   }
   var total = hasPrice ? fmt(p.prices[cur] * qty) : 'Precio a confirmar';
   var text = hasPrice
-    ? 'Hola! Quiero ' + qty + ' x ' + p.name + ' de ' + LABELS[cur] + '.'
+    ? 'Hola! Quiero ' + qty + ' x ' + p.name + (cur === 'frasco' ? '.' : ' de ' + LABELS[cur] + '.')
     : 'Hola! Quiero consultar el precio de ' + p.name + '.';
   return '<div class="card">' + photo +
     '<h3 class="pname">' + esc(p.name) + '</h3>' +
