@@ -140,9 +140,9 @@ footer{border-top:1px solid var(--line)}
 
 <!-- Portada -->
 <section class="hero">
-<div class="eyebrow">Frutos secos y semillas</div>
+<div class="eyebrow">Frutos secos y semillas · Pilar</div>
 <h1>Frutos secos de verdad, directo a tu casa</h1>
-<p>Almendras, nueces, castañas, pistachos y mucho más. Elegí tus favoritos, pedinos por WhatsApp y recibilos donde estés.</p>
+<p>Almendras, nueces, castañas, frutas desecadas y mucho más. Elegí tus favoritos, pedinos por WhatsApp y recibilos donde estés.</p>
 <div class="row">
 <a class="btn lg" data-wa="Hola! Quiero hacer un pedido de frutos secos." href="#">Hacer mi pedido</a>
 <a class="btn lg ghost" href="#productos">Ver productos</a>
@@ -198,7 +198,7 @@ footer{border-top:1px solid var(--line)}
 
 <footer>
 <div class="foot">
-<div>Brisa Natural · Superalimentos · [Tu ciudad], Argentina</div>
+<div>Brisa Natural · Superalimentos · Pilar, Buenos Aires, Argentina</div>
 <div>WhatsApp: +54 11 3035 4465 · Instagram: [@tuusuario]</div>
 </div>
 </footer>
@@ -214,12 +214,42 @@ var WHATSAPP = '5491130354465'; // código de país + número, sin + ni espacios
 var CATALOG = [
   { key: 'energetico', cat: 'Mixes', name: 'Mix Energético', photo: 'images/mix-energetico.jpg', desc: 'Almendras non pareil, nueces mariposa extra light, pasas de uva, maní sin sal y chips de banana.', prices: { '250': 4500, '500': 8500, '1000': 16500 } },
   { key: 'esencial', cat: 'Mixes', name: 'Mix Esencial', photo: 'images/mix-esencial.jpg', desc: 'Almendras non pareil, nueces mariposa extra light, maní sin sal y chips de banana.', prices: { '250': 5500, '500': 10500, '1000': 20000 } },
-  { key: 'almendras', cat: 'Frutos secos', name: 'Almendras non pareil', photo: '', desc: 'Crocantes, ideales para snack o repostería.', prices: { '250': 9500 } },
-  { key: 'nueces', cat: 'Frutos secos', name: 'Nueces', photo: '', desc: '', prices: {} },
-  { key: 'caju', cat: 'Frutos secos', name: 'Castañas de cajú', photo: '', desc: '', prices: {} },
-  { key: 'pistachos', cat: 'Frutos secos', name: 'Pistachos', photo: '', desc: '', prices: {} },
-  { key: 'avellanas', cat: 'Frutos secos', name: 'Avellanas', photo: '', desc: '', prices: {} },
-  { key: 'pasas', cat: 'Frutas desecadas', name: 'Pasas de uva', photo: '', desc: '', prices: {} }
+  { key: 'nutricion', cat: 'Mixes', name: 'Mix Nutrición', photo: 'images/mix-nutricion.jpg', desc: 'Girasol pelado, almendras non pareil, maní sin sal y castañas de cajú.', prices: { '250': 5300, '500': 10000, '1000': 19000 } },
+  { key: 'premium', cat: 'Mixes', name: 'Mix Premium', photo: 'images/mix-premium.jpg', desc: 'Almendras non pareil, nueces mariposa extra light y castañas de cajú.', prices: { '250': 8800, '500': 16800, '1000': 32500 } },
+  { key: 'semillas', cat: 'Mixes', name: 'Mix Semillas', photo: 'images/mix-semillas.jpg', desc: 'Chía premium, girasol pelado, sésamo integral y lino.', prices: { '250': 1500, '500': 2800, '1000': 5300 } },
+  { key: 'tentacion', cat: 'Mixes', name: 'Mix Tentación', photo: 'images/mix-tentacion.jpg', desc: 'Chips de chocolate, girasol pelado, almendras non pareil, maní sin sal y castañas de cajú.', prices: { '250': 4300, '500': 8300, '1000': 16000 } },
+  { key: 'vital', cat: 'Mixes', name: 'Mix Vital', photo: 'images/mix-vital.jpg', desc: 'Nueces mariposa extra light, almendras non pareil, maní sin sal y pasas de uva.', prices: { '250': 4100, '500': 7800, '1000': 15000 } },
+  { key: 'pandulce', cat: 'Mixes', name: 'Mix Pan dulce', photo: 'images/mix-pan-dulce.jpg', desc: 'Castañas de cajú, almendras, nueces, fruta abrillantada y pasas de uva.', prices: { '250': 4300, '500': 8300, '1000': 16000 } },
+  { key: 'pandulcepremium', cat: 'Mixes', name: 'Mix Pan Dulce Premium 🎄', photo: 'images/mix-pan-dulce-premium.jpg', desc: 'Almendras, nueces, castañas de cajú, pasas de uva, fruta abrillantada y chips de chocolate.', prices: { '250': 6500, '500': 12000, '1000': 22000 } },
+  { key: 'almendras', cat: 'Frutos secos', name: 'Almendras non pareil', photo: 'images/almendras-non-pareil.jpg', desc: 'Crocantes, ideales para snack o repostería.', prices: { '250': 10500, '500': 19500, '1000': 36000 } },
+  { key: 'nueces', cat: 'Frutos secos', name: 'Nueces mariposa extra light', photo: 'images/nueces-mariposa.jpg', desc: 'Mitades de nuez mariposa extra light.', prices: { '250': 6500, '500': 11500, '1000': 21000 } },
+  { key: 'manicon', cat: 'Frutos secos', name: 'Maní con sal', photo: 'images/mani.jpg', desc: '', prices: { '250': 1500, '500': 2600, '1000': 4500 } },
+  { key: 'manisin', cat: 'Frutos secos', name: 'Maní sin sal', photo: 'images/mani.jpg', desc: '', prices: { '250': 1500, '500': 2600, '1000': 4500 } },
+  { key: 'caju', cat: 'Frutos secos', name: 'Castañas de cajú 🤎', photo: 'images/castanas-de-caju.jpg', desc: 'Castañas de cajú enteras.', prices: { '250': 7000, '500': 13000, '1000': 24000 } },
+  { key: 'arandanos', cat: 'Frutas desecadas', name: 'Arándanos deshidratados', photo: 'images/arandanos.jpg', desc: 'Arándanos deshidratados.', prices: { '250': 7000, '500': 13000, '1000': 24000 } },
+  { key: 'pasas', cat: 'Frutas desecadas', name: 'Pasas de uva', photo: 'images/pasas-de-uva.jpg', desc: 'Uvas deshidratadas.', prices: { '250': 1800, '500': 3300, '1000': 6000 } },
+  { key: 'ciruelas', cat: 'Frutas desecadas', name: 'Ciruelas D’Agen sin carozo', photo: 'images/ciruelas-dagen.jpg', desc: '', prices: { '250': 4500, '500': 8500, '1000': 15000 } },
+  { key: 'datiles', cat: 'Frutas desecadas', name: 'Dátiles de Argelia con carozo', photo: 'images/datiles.jpg', desc: 'Dátiles enteros de Argelia con carozo.', prices: { '250': 2500, '500': 4500, '1000': 8000 } },
+  { key: 'escurrida', cat: 'Frutas desecadas', name: 'Fruta escurrida', photo: 'images/fruta-escurrida.jpg', desc: '', prices: { '250': 1800, '500': 3300, '1000': 6000 } },
+  { key: 'almohadita-avellana', cat: 'Almohaditas', name: 'Almohaditas de avellana', photo: 'images/almohadita-avellana.jpg', desc: '', prices: { '250': 3000, '500': 5500, '1000': 10000 } },
+  { key: 'almohadita-frutilla', cat: 'Almohaditas', name: 'Almohaditas de frutilla', photo: 'images/almohadita-frutilla.jpg', desc: '', prices: { '250': 3000, '500': 5500, '1000': 10000 } },
+  { key: 'almohadita-limon', cat: 'Almohaditas', name: 'Almohaditas de limón', photo: 'images/almohadita-limon.jpg', desc: '', prices: { '250': 3000, '500': 5500, '1000': 10000 } },
+  { key: 'arroz-yamani', cat: 'Cereales', name: 'Arroz yamaní', photo: 'images/arroz-yamani.jpg', desc: '', prices: { '250': 1100, '500': 1900, '1000': 3500 } },
+  { key: 'avena-instantanea', cat: 'Cereales', name: 'Avena instantánea', photo: 'images/avena-instantanea.jpg', desc: '', prices: { '250': 1000, '500': 1700, '1000': 3000 } },
+  { key: 'avena-tradicional', cat: 'Cereales', name: 'Avena tradicional', photo: 'images/avena-tradicional.jpg', desc: '', prices: { '250': 1000, '500': 1700, '1000': 3000 } },
+  { key: 'copos-maiz', cat: 'Cereales', name: 'Copos de maíz sin azúcar', photo: 'images/copos-de-maiz.jpg', desc: '', prices: { '250': 1300, '500': 2200, '1000': 4000 } },
+  { key: 'avena-extrafina', cat: 'Cereales', name: 'Avena extra fina', photo: 'images/avena-extrafina.jpg', desc: '', prices: { '250': 1000, '500': 1700, '1000': 3000 } },
+  { key: 'chia', cat: 'Semillas', name: 'Chía premium', photo: 'images/chia-premium.jpg', desc: 'Semillas de chía.', prices: { '250': 3300, '500': 6100, '1000': 11500 } },
+  { key: 'girasol', cat: 'Semillas', name: 'Girasol pelado', photo: 'images/girasol-pelado.jpg', desc: 'Semillas de girasol peladas.', prices: { '250': 1850, '500': 3350, '1000': 6100 } },
+  { key: 'alubia', cat: 'Legumbres', name: 'Poroto alubia premium', photo: 'images/poroto-alubia.jpg', desc: 'Porotos alubia blancos.', prices: { '250': 1150, '500': 1900, '1000': 3200 } },
+  { key: 'garbanzos', cat: 'Legumbres', name: 'Garbanzos', photo: 'images/garbanzos.jpg', desc: 'Garbanzos secos.', prices: { '250': 1100, '500': 1800, '1000': 3000 } },
+  { key: 'lenteja', cat: 'Legumbres', name: 'Lenteja nacional', photo: 'images/lenteja-nacional.jpg', desc: 'Lentejas secas de origen nacional.', prices: { '250': 1300, '500': 2150, '1000': 3900 } },
+  { key: 'harina-integral', cat: 'Harinas', name: 'Harina integral superfina', photo: 'images/harina-integral-superfina.jpg', desc: 'Harina integral de trigo de molienda superfina.', prices: { '250': 750, '500': 1200, '1000': 1900 } },
+  { key: 'salvado-avena', cat: 'Harinas', name: 'Salvado de avena', photo: 'images/salvado-avena.jpg', desc: 'Salvado de avena.', prices: { '250': 1200, '500': 2000, '1000': 3500 } },
+  { key: 'fecula-mandioca', cat: 'Harinas', name: 'Fécula de mandioca', photo: 'images/fecula-mandioca.jpg', desc: 'Almidón de mandioca.', prices: { '250': 1250, '500': 2100, '1000': 3700 } },
+  { key: 'harina-almendras', cat: 'Harinas', name: 'Harina de almendras con piel', photo: 'images/harina-almendras.jpg', desc: 'Almendras molidas con piel.', prices: { '250': 2900, '500': 5000, '1000': 9500 } },
+  { key: 'harina-avena', cat: 'Harinas', name: 'Harina de avena', photo: 'images/harina-avena.jpg', desc: 'Avena molida.', prices: { '250': 1100, '500': 1800, '1000': 3000 } },
+  { key: 'harina-garbanzo', cat: 'Harinas', name: 'Harina de garbanzo', photo: 'images/harina-garbanzo.jpg', desc: 'Garbanzos molidos.', prices: { '250': 750, '500': 1200, '1000': 1900 } },
 ];
 /* ====== FIN ====== */
 
